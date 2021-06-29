@@ -20,5 +20,16 @@
         "correo": "levy.zg14@gmail.com",
         "telefono": 9191685016,
         "carrera": "RIyC"
+    },
+    {
+        "item_id": 3,
+        "matricula": 91810225,
+        "nombre": "Giobanni",
+        "apaterno": "Sanchez ",
+        "amaterno": "de la Cruz",
+        "edad": 21,
+        "correo": "llomami@hotmail.com",
+        "telefono": 9191545943,
+        "carrera": "RIyC"
     }
 ]
