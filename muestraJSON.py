@@ -8,7 +8,7 @@ import json
 
 app = FastAPI(title = "FastAPI con Jinja2")
 app.mount("/rutarecursos", StaticFiles(directory="recursos"), name="mirecurso")
-Plantilla = Jinja2Templates(directory="plantillas")
+miPlantilla = Jinja2Templates(directory="plantillas")
 
 async def cargarJSON():
     with open('lista_alumnos.json',"r") as archivo_json:
@@ -24,13 +24,14 @@ async def guardarJSON(datosAgregar:List):
 
 @app.get("/inicio/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return Plantilla.TemplateResponse("index.html",{"request":request})
+    datos = await cargarJSON()
+    return miPlantilla.TemplateResponse("index.html",{"request":request, "lista":datos})
 
 
 @app.get("/lista", response_class=HTMLResponse)
 async def iniciar(request: Request):
     datos = await cargarJSON()
-    return Plantilla.TemplateResponse("listaIntegrantes.html",{"request":request,"lista":datos})
+    return miPlantilla.TemplateResponse("listaIntegrantes.html",{"request":request,"lista":datos})
 
 
 @app.post("/agregar")
