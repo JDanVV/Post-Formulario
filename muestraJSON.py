@@ -71,4 +71,31 @@ async def eliminar(request:Request,id:int):
     await guardarJSON(datos)
 
     return RedirectResponse("/lista",303)
+@app.get("/modificar/{id}")
+async def modificar(request:Request,id:int):
+    datos = await cargarJSON()
+    id1 = datos[id]
+    id2 = id1['item_id']
+    print (id2)
+    return Plantilla.TemplateResponse("modificar.html",{"request":request,"lista":datos,"id":id2})
 
+
+@app.post("/modificar_l/{id}")
+async def modificar(request:Request,id:int):
+    datos = await cargarJSON()
+    #print (datos)
+    #print (datos[id])
+    datos[id]
+    nuevos_datos = datos[id]
+    datos_formulario = await request.form()
+    nuevos_datos["matricula"] = int(datos_formulario["f_matricula"])
+    nuevos_datos["nombre"] = datos_formulario["f_nombre"]
+    nuevos_datos["apaterno"] = (datos_formulario["f_apaterno"])
+    nuevos_datos["amaterno"] = (datos_formulario["f_amaterno"])
+    nuevos_datos["edad"] = int(datos_formulario["f_edad"])
+    nuevos_datos["correo"] = (datos_formulario["f_correo"])
+    nuevos_datos["telefono"] = int(datos_formulario["f_telefono"])
+    nuevos_datos["carrera"] = (datos_formulario["f_carrera"])
+    datos[id] = nuevos_datos
+    await guardarJSON(datos)
+    return RedirectResponse("/lista",303)
