@@ -24,7 +24,7 @@ async def guardarJSON(datosAgregar:List):
 
 @app.get("/inicio/", response_class=HTMLResponse)
 async def read_item(request: Request):
-    return Plantilla.TemplateResponse("index.html",{"request":request, "lista":datos})
+    return Plantilla.TemplateResponse("index.html",{"request":request})
 
 
 @app.get("/lista", response_class=HTMLResponse)
