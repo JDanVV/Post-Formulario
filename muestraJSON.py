@@ -78,7 +78,7 @@ async def modificar(request:Request,id:int):
     id1 = datos[id]
     id2 = id1['item_id']
     print (id2)
-    return Plantilla.TemplateResponse("modificar.html",{"request":request,"lista":datos,"id":id2})
+    return miPlantilla.TemplateResponse("modificar.html",{"request":request,"lista":datos,"id":id2})
 
 
 @app.post("/modificar_l/{id}")
