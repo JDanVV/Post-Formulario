@@ -31,5 +31,16 @@
         "correo": "llomami@hotmail.com",
         "telefono": 9191545943,
         "carrera": "RIyC"
+    },
+    {
+        "item_id": 4,
+        "matricula": 91810897,
+        "nombre": "Juan Daniel",
+        "apaterno": "Vazquez",
+        "amaterno": "Vera",
+        "edad": 24,
+        "correo": "aljim400ro@gmail.com",
+        "telefono": 5619333011,
+        "carrera": "RIrC"
     }
 ]
