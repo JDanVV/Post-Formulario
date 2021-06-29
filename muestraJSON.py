@@ -101,7 +101,7 @@ async def modificar(request:Request,id:int):
     await guardarJSON(datos)
     return RedirectResponse("/lista",303)
 
-@app.get("/ver_sitiopersonal/{id}")
+@app.get("/colaborador/{id}")
 async def modificar(request:Request,id:int):
     datos = await cargarJSON()
     id1 = datos[id]
